@@ -34,7 +34,7 @@
 
         // Função para buscar cotações em tempo real
         async function fetchStockQuote() {
-            const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=1min&apikey=${apiKey}`);
+            const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=${symbol}&interval=1min&apikey=${apiKey}`);
             const data = await response.json();
             const lastRefreshed = data['Meta Data']['3. Last Refreshed'];
             const latestPrice = data['Time Series (1min)'][lastRefreshed]['1. open'];
