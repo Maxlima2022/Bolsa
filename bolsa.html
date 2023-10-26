@@ -4,9 +4,9 @@
     <title>Letreiro da Bolsa de Valores em Tempo Real</title>
     <style>
 
-        body {
-            background:aquamarine;
-            color: rgb(8, 8, 8;
+    body {
+            color: rgb(8, 8, 8);
+            background-color: aqua;
         }
         #ticker {
             overflow: hidden;
@@ -35,11 +35,11 @@
     <script>
         // Substitua 'YOUR_API_KEY' pela chave de API do Alpha Vantage
         const apiKey = '5KEK21K4V4ZJOZF1';
-        const symbol = PETR4.SA; // Substitua pela ação desejada
+        const symbol = 'GGBR4,CVCB3' ; // Substitua pela ação desejada
 
         // Função para buscar cotações em tempo real
         async function fetchStockQuote() {
-            const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=${symbol}&interval=1min&apikey=${apiKey}`);
+            const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=1min&apikey=${apiKey}`);
             const data = await response.json();
             const lastRefreshed = data['Meta Data']['3. Last Refreshed'];
             const latestPrice = data['Time Series (1min)'][lastRefreshed]['1. open'];
@@ -53,6 +53,12 @@
         fetchStockQuote(); // Chame a função para exibir o valor inicial
 
     </script>
+</head>
+<body>
+    <div id="ticker">
+        <p id="stockTicker">Loading...</p>
+    </div>
+   
 <h1>CNM NEWS AO VIVO</h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gg88oV5uSIQ?si=tHdPMTILLYubB_1-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
